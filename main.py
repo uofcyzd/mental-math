@@ -1,4 +1,4 @@
-import random, sys
+import random, sys, xlsxwriter
 
 def add(x,y):
     return(x+y)
@@ -61,7 +61,8 @@ def options(x, terms):
     elif x == "c":
         return(multiply(terms[0],terms[1]))
     else:
-        return(math.floor(divide(terms[0],terms[1])))
+        return(math.floor(divide(terms[0],terms[1]))) #so far inputs only looks at integer inputs; change later
+
 
 def name(x):
     if x == "a":
@@ -121,3 +122,14 @@ def gameSelect():
 
 
 game(gameSelect(),optionSelect())
+
+'''
+workbook = xw.WorkBook('Demo.xlsx')
+wsHello = workbook.add_worksheet(name = 'Hello')
+ws2 = workbook.add_worksheet()
+
+wsHello.write('A1','Hello')
+wsHello.write(1,0,'Goodbye')
+
+workbook.close()
+'''

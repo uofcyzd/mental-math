@@ -44,7 +44,7 @@ def game(x,y):
             except ValueError:
                 print("Invalid selection detected")
 
-        if guess == 0 && options(x, values) != 0: #Unfortunately, the terrible workaround for when 0 is the answer
+        if (guess == 0 and options(x, values) != 0): #Unfortunately, the terrible workaround for when 0 is the answer
             break
         elif guess == options(x,values):
             print("Correct")

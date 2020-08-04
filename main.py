@@ -1,4 +1,14 @@
-import random, sys, xlsxwriter
+import random, sys
+
+
+def highScore(n, k):
+    out = open("score.txt", "a")
+    out.write("New score: ")
+    out.write(str(n))
+    out.write("\n")
+    out.write("Percent success: ")
+    out.write(str(k))
+    out.close()
 
 def add(x,y):
     return(x+y)
@@ -34,6 +44,11 @@ def rng(o):
 
 def game(x,y):
 
+    test = 0
+
+    n = 0
+
+
     while True:
         values = rng(y)
         while True:
@@ -45,10 +60,14 @@ def game(x,y):
                 print("Invalid selection detected")
 
         if (guess == 0 and options(x, values) != 0): #Unfortunately, the terrible workaround for when 0 is the answer
+            highScore(test, n)
             break
         elif guess == options(x,values):
+            test += 1
+            n += 1
             print("Correct")
         else:
+            n += 1
             print("Incorrect")
 
 
